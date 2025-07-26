@@ -18,9 +18,9 @@ Send an alert to Slack whenever a new row is added in a Google Sheet.
 
 ## 📸 Example Slack Message
 
-📋 New Task Entry:\n
-- Name: Saad\n
-- Email: saadtahir009@gmail.com\n
+📋 New Task Entry:
+- Name: Saad
+- Email: saadtahir009@gmail.com
 - Task: Follow UP with Clients
 
 ---
