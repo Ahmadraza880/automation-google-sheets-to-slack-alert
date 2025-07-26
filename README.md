@@ -19,9 +19,9 @@ Send an alert to Slack whenever a new row is added in a Google Sheet.
 ## 📸 Example Slack Message
 
 📋 New Task Entry:\n
-• Name: Saad\n
-• Email: saadtahir009@gmail.com\n
-• Task: Follow UP with Clients
+- Name: Saad\n
+- Email: saadtahir009@gmail.com\n
+- Task: Follow UP with Clients
 
 ---
 
@@ -82,9 +82,9 @@ n8n-google-sheets-to-slack-alert/
 The following screenshots are included in the `/screenshots` folder:
 
 - `workflow-ui.png`: Full n8n workflow layout
-- ![Workflow Screenshot](./assets/screenshot.png)
+- ![Workflow Screenshot](./screenshots/workflow-ui.png)
 - `slack-message.png`: Message received in Slack
-- ![Workflow Screenshot](./assets/screenshot.png)  
+- ![Message received in Slack](./screenshots/slack-message.png)  
 
 ---
 
