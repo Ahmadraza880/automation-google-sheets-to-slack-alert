@@ -1,0 +1,128 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "1pEf7aGHtk879MAMF7XYFPynNize0ARIkOnthCtgjYb4",
+          "mode": "list",
+          "cachedResultName": "Task automation",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pEf7aGHtk879MAMF7XYFPynNize0ARIkOnthCtgjYb4/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1pEf7aGHtk879MAMF7XYFPynNize0ARIkOnthCtgjYb4/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        -224,
+        -144
+      ],
+      "id": "82e3c1cd-ecb2-4e4d-9d44-2cbda381f112",
+      "name": "Google Sheets Trigger",
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "PhwKkHHgI8YDCVRc",
+          "name": "Google Sheets Trigger account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f2f38343-cc34-4e76-b3c4-8459449f1328",
+              "name": "slackMessage",
+              "value": "={{(() => {\n  const name = $json[\"NAME\"] || \"No Name\";\n  const email = $json[\"EMAIL\"] || \"No Email\";\n  const task = $json[\"TASK\"] || \"No Task\";\n\n  return `📋 *New Task Entry:*\\n• Name: ${name}\\n• Email: ${email}\\n• Task: ${task}`;\n})()}}\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -176,
+        112
+      ],
+      "id": "2452a4ee-c8c5-42f8-9135-f75146500910",
+      "name": "Slack Message"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hooks.slack.com/services/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",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "text",
+              "value": "={{ $json.slackMessage }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        144,
+        -48
+      ],
+      "id": "1d07ae53-39b6-4c5e-9989-d1254fdcbcfa",
+      "name": "HTTP Request"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Sheets Trigger": {
+      "main": [
+        [
+          {
+            "node": "Slack Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Slack Message": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "3a4a79c8-f181-4dab-9db4-92be00d8556a",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "c21559ddd0b4ba88f4219ad5a933550dcf5a51ede3270a9a2c37a540bdfe8f7f"
+  },
+  "id": "Cc88xauY8vdpV5s0",
+  "tags": []
+}
