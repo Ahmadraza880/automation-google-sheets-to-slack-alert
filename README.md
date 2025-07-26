@@ -1,7 +1,6 @@
 # 📋 Google Sheets to Slack Alert Automation (n8n)
 
 Automate alerts from a Google Sheet into Slack using n8n.  
-This is part of a 40-day automation challenge (Day 1 – Project 2).
 
 ---
 
@@ -19,9 +18,9 @@ Send an alert to Slack whenever a new row is added in a Google Sheet.
 
 ## 📸 Example Slack Message
 
-📋 New Task Entry:
-• Name: Saad
-• Email: saadtahir009@gmail.com
+📋 New Task Entry:\n
+• Name: Saad\n
+• Email: saadtahir009@gmail.com\n
 • Task: Follow UP with Clients
 
 ---
@@ -83,7 +82,9 @@ n8n-google-sheets-to-slack-alert/
 The following screenshots are included in the `/screenshots` folder:
 
 - `workflow-ui.png`: Full n8n workflow layout
+- ![Workflow Screenshot](./assets/screenshot.png)
 - `slack-message.png`: Message received in Slack
+- ![Workflow Screenshot](./assets/screenshot.png)  
 
 ---
 
